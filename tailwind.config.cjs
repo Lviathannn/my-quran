@@ -6,6 +6,10 @@ module.exports = {
    ],
    theme: {
       extend: {},
+      fontFamily: {
+         arab: ["LPMQI", "serif"],
+         poppins: ["Poppins", "serif"],
+      },
    },
-   plugins: [require("flowbite/plugin")],
+   plugins: [require("flowbite/plugin"), require("tailwind-scrollbar-hide")],
 };

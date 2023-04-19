@@ -7,12 +7,13 @@ type Props = {
    id: number;
    title: string;
    translate: string;
+   customClass?: string;
 };
 
-export default function Card({ id, title, translate }: Props) {
+export default function Card({ id, title, translate, customClass }: Props) {
    const [love, setlove] = useState(false);
    return (
-      <div className="relative">
+      <div className={`relative`}>
          <button className="absolute top-5 right-5">
             {!love ? (
                <HeartIcon
@@ -32,7 +33,7 @@ export default function Card({ id, title, translate }: Props) {
          </button>
          <Link
             to={`/surah/${id}`}
-            className="flex flex-col gap-5 rounded-xl bg-white px-5 py-5"
+            className={`flex flex-col gap-5 rounded-xl bg-white px-5 py-5 ${customClass}`}
          >
             <div className="flex justify-between">
                <div className=" flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 p-4 font-medium text-emerald-600">

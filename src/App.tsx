@@ -20,7 +20,7 @@ function App() {
          <Router>
             <Navbar />
             <SideBar />
-            <div className="bg-slate-100 sm:pl-20">
+            <div className="bg-slate-100 font-poppins sm:pl-20">
                <Routes>
                   <Route path="/" Component={Surah} />
                   <Route path="/surah/:surahId" Component={surahDetail} />

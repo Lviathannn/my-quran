@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
-import Card from "../components/Card";
-import Header from "../components/Header";
+import Card from "../components/surah/Card";
+import Header from "../components/surah/Header";
 import MobileHeader from "../components/MobileHeader";
 import useFetch from "../hooks/useFetch";
-import { SurahData } from "../type";
-import SekeletonCard from "../components/SekeletonCard";
+import SekeletonCard from "../components/surah/SekeletonCard";
 import { sekeleteon } from "../data/dummy";
 type Props = {};
 
@@ -23,6 +22,8 @@ export default function Surah({}: Props) {
             } else if (
                !surah.textContent
                   ?.toLocaleLowerCase()
+                  .replace("-", "")
+                  .replace("'", "")
                   .includes(
                      search
                         .toLocaleLowerCase()
@@ -47,7 +48,7 @@ export default function Surah({}: Props) {
          <MobileHeader />
          <div
             ref={surahList}
-            className={`grid grid-cols-1 gap-5 p-8 px-5 pt-24 sm:pt-0 ${
+            className={`grid grid-cols-1 gap-5 p-8 pt-24 sm:pt-0 ${
                grid
                   ? "sm:grid-cols-2 lg:grid-cols-4"
                   : "sm:grid-cols-1 lg:grid-cols-2"
