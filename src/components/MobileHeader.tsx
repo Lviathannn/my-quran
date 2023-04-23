@@ -4,7 +4,7 @@ type Props = {};
 
 export default function MobileHeader({}: Props) {
    return (
-      <div className="fixed top-0 flex h-20 w-full items-center justify-between gap-5 bg-white px-5 shadow-sm sm:hidden">
+      <div className="fixed top-0 z-50 flex h-20 w-full items-center justify-between gap-5 bg-white px-5 shadow-sm">
          <img src="img/quran.png" alt="" className="w-8" />
          <div className="relative">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">

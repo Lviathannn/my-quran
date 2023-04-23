@@ -16,7 +16,7 @@ export default function Header({
    searchHandler,
 }: Props) {
    return (
-      <div className="sticky top-0 z-50 hidden w-full items-center justify-between bg-slate-100 py-5 px-5 sm:flex">
+      <div className="sticky top-0 z-50 flex w-full items-center justify-between bg-slate-100 py-5 px-5">
          <div className="">
             <button
                onClick={() => {

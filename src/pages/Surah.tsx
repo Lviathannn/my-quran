@@ -5,6 +5,7 @@ import MobileHeader from "../components/MobileHeader";
 import useFetch from "../hooks/useFetch";
 import SekeletonCard from "../components/surah/SekeletonCard";
 import { sekeleteon } from "../data/dummy";
+import useWindowWidth from "../hooks/useWindowWidth";
 type Props = {};
 
 export default function Surah({}: Props) {
@@ -36,16 +37,20 @@ export default function Surah({}: Props) {
          }
       }
    };
+   const windowWidth = useWindowWidth();
 
    return (
       <div className="relative">
-         <Header
-            setGrid={setGrid}
-            grid={grid}
-            setKeyWord={setSearch}
-            searchHandler={filterSurah}
-         />
-         <MobileHeader />
+         {windowWidth > 640 ? (
+            <Header
+               setGrid={setGrid}
+               grid={grid}
+               setKeyWord={setSearch}
+               searchHandler={filterSurah}
+            />
+         ) : (
+            <MobileHeader />
+         )}
          <div
             ref={surahList}
             className={`grid grid-cols-1 gap-5 p-8 pt-24 sm:pt-0 ${

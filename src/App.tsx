@@ -13,13 +13,14 @@ import PrayerSchedule from "./pages/PrayerSchedule";
 import FlowFooter from "./components/FlowFooter";
 import surahDetail from "./pages/surahDetail";
 import NotFound from "./pages/NotFound";
+import useWindowWidth from "./hooks/useWindowWidth";
 
 function App() {
+   const windowWidth = useWindowWidth();
    return (
       <>
          <Router>
-            <Navbar />
-            <SideBar />
+            {windowWidth > 640 ? <SideBar /> : <Navbar />}
             <div className="bg-slate-100 font-poppins sm:pl-20">
                <Routes>
                   <Route path="/" Component={Surah} />
