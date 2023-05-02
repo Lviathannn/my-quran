@@ -1,6 +1,6 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { Dispatch } from "react";
-import { SurahData } from "../../type";
+import { surahData } from "../../type";
 
 type Props = {
     setGrid: Dispatch<boolean>;

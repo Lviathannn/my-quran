@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 type Props = {
     id: number;
-    suratName: string;
+    surahName: string;
     nomerAyat: number;
     ayat: string;
     translate: string;
@@ -12,14 +12,14 @@ type Props = {
     value: {
         id: number;
         nomerAyat: any;
-        suratName: any;
+        surahName: any;
     };
     setValue: (value: any) => void;
 };
 
 export default function AyatDetail({
     id,
-    suratName,
+    surahName,
     nomerAyat,
     ayat,
     translate,
@@ -32,12 +32,12 @@ export default function AyatDetail({
     const bookmarkedHandler = (
         id: number,
         nomerAyat: number,
-        suratName: string
+        surahName: string
     ) => {
         const bookmark = {
             id,
             nomerAyat,
-            suratName,
+            surahName,
         };
 
         setValue(bookmark);
@@ -48,7 +48,7 @@ export default function AyatDetail({
     };
 
     useEffect(() => {
-        if (value.suratName == suratName) {
+        if (value.surahName == surahName) {
             if (value.nomerAyat == nomerAyat) {
                 setbookMarked(true);
             } else if (value.nomerAyat !== nomerAyat) {
@@ -68,7 +68,7 @@ export default function AyatDetail({
                         <BookmarkIcon
                             onClick={() => {
                                 setbookMarked(true);
-                                bookmarkedHandler(id, nomerAyat, suratName);
+                                bookmarkedHandler(id, nomerAyat, surahName);
                             }}
                             className="w-7 text-gray-400"
                         />

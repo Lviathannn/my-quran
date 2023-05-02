@@ -11,7 +11,7 @@ import BookMark from "./pages/BookMark";
 import Favorite from "./pages/Favorite";
 import PrayerSchedule from "./pages/PrayerSchedule";
 import FlowFooter from "./components/FlowFooter";
-import surahDetail from "./pages/surahDetail";
+import SurahDetail from "./pages/surahDetail";
 import NotFound from "./pages/NotFound";
 import useWindowWidth from "./hooks/useWindowWidth";
 
@@ -20,14 +20,14 @@ function App() {
     return (
         <>
             <Router>
-                {windowWidth > 640 ? <SideBar /> : <Navbar />}
-                <div className="bg-slate-100 font-poppins sm:pl-20">
+                {windowWidth > 1024 ? <SideBar /> : <Navbar />}
+                <div className="bg-slate-100 font-poppins lg:pl-20">
                     <Routes>
                         <Route path="/" Component={Surah} />
-                        <Route path="/surah/:surahId" Component={surahDetail} />
+                        <Route path="/surah/:surahId" Component={SurahDetail} />
                         <Route
                             path="/surah/:surahId/:ayatId"
-                            Component={surahDetail}
+                            Component={SurahDetail}
                         />
                         <Route path="/bookmark" Component={BookMark} />
                         <Route path="/favorite" Component={Favorite} />

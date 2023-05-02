@@ -8,7 +8,7 @@ export default function NotFound({}: Props) {
             <div className="flex flex-col items-center justify-center gap-6">
                 <img src={Alquran} alt="" className="w-40" />
                 <h1 className="text-lg font-semibold text-slate-600">
-                    Surah Yang Anda Cari Tidak Ditemukan
+                    surah Yang Anda Cari Tidak Ditemukan
                 </h1>
                 <Link
                     to={"/"}

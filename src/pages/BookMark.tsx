@@ -14,7 +14,7 @@ export default function BookMark({}: Props) {
                 <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
                     <Card
                         id={value.id}
-                        title={value.suratName}
+                        title={value.surahName}
                         translate={`Ayat Ke ${value.nomerAyat}`}
                         ayatID={value.nomerAyat}
                     />

@@ -1,4 +1,4 @@
-interface Surah {
+interface surah {
    nomor: number;
    nama: string;
    namaLatin: string;
@@ -12,11 +12,18 @@ interface Surah {
 }
 
 interface Data {
-   data: Surah[];
+   data: surah[];
 }
 
-export interface SurahData {
+export interface surahData {
    code: number;
    message: string;
    data: Data | null;
+}
+
+export interface Loved {
+   id: number;
+   title: string;
+   translate:string;
+   
 }

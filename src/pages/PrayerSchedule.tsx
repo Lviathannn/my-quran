@@ -1,11 +1,47 @@
+import { Table } from "flowbite-react";
+import { useState } from "react";
+import useFetch from "../hooks/useFetch";
+import FlowTable from "../components/prayerSchedule/FlowTable";
+import FlowDropdown from "../components/prayerSchedule/FlowDropdown";
+
 type Props = {};
 
 export default function PrayerSchedule({}: Props) {
+    const [city, setCity] = useState({ id: "683", city: "Ciamis" });
+    const getDate = () => {
+        let day: string | number = new Date().getDate();
+        let month: string | number = new Date().getMonth();
+        const year: string | number = new Date().getFullYear();
+        if (day < 10) {
+            day = `0${day}`;
+        }
+        if (month < 10) {
+            month = `0${month}`;
+        }
+        return `${year}-${month}-${day}`;
+    };
+    const date = getDate();
+    const { data, isLoading } = useFetch<any>(
+        `https://api.banghasan.com/sholat/format/json/jadwal/kota/${city.id}/tanggal/${date}`
+    );
     return (
-        <div className="h-screen bg-slate-100">
-            <h1 className="text-3xl font-bold text-indigo-500">
-                Ini Adalah Page Schedule
-            </h1>
+        <div className="h-screen bg-slate-100 p-8">
+            <div className="flex flex-col gap-5">
+                <FlowDropdown setCity={setCity} />
+                <Table>
+                    <Table.Head>
+                        <Table.HeadCell>Waktu Sholat</Table.HeadCell>
+                        <Table.HeadCell>Jam</Table.HeadCell>
+                        <Table.HeadCell>Kota</Table.HeadCell>
+                        <Table.HeadCell>Tanggal</Table.HeadCell>
+                    </Table.Head>{" "}
+                    {!isLoading ? (
+                        <FlowTable data={data?.jadwal?.data} city={city.city} />
+                    ) : (
+                        ""
+                    )}
+                </Table>
+            </div>
         </div>
     );
 }

@@ -1,7 +1,8 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Loved } from "../../type";
 
 type Props = {
     id: number;
@@ -19,20 +20,61 @@ export default function Card({
     ayatID,
 }: Props) {
     const [love, setlove] = useState(false);
+    useEffect(() => {
+        const localStorage = window.localStorage.getItem("loved");
+        if (localStorage !== null) {
+            const lovedStorage = JSON.parse(localStorage);
+            lovedStorage.forEach((love: Loved) => {
+                if (love.id === id) {
+                    setlove(true);
+                }
+            });
+        }
+    }, []);
+
+    const lovedHandler = (id: number, title: string, translate: string) => {
+        const newLovedsurah = { id, title, translate };
+        const localStorage = window.localStorage.getItem("loved");
+        if (localStorage == null) {
+            window.localStorage.setItem(
+                "loved",
+                JSON.stringify([newLovedsurah])
+            );
+        } else {
+            const oldStorage = JSON.parse(localStorage);
+            const newStorage = [newLovedsurah, ...oldStorage];
+            window.localStorage.setItem("loved", JSON.stringify(newStorage));
+        }
+        setlove(true);
+    };
+    const unLovedHandler = () => {
+        const localStorage = window.localStorage.getItem("loved");
+        if (localStorage !== null) {
+            const oldStorage = JSON.parse(localStorage);
+            const newStorage = oldStorage.filter((item: any) => {
+                if (item.id !== id) {
+                    return item;
+                }
+            });
+            window.localStorage.setItem("loved", JSON.stringify(newStorage));
+            setlove(false);
+        }
+    };
+
     return (
         <div className={`relative`}>
             <button className="absolute top-5 right-5">
                 {!love ? (
                     <HeartIcon
                         onClick={() => {
-                            setlove(!love);
+                            lovedHandler(id, title, translate);
                         }}
                         className="w-6 text-gray-400"
                     />
                 ) : (
                     <HeartSolid
                         onClick={() => {
-                            setlove(!love);
+                            unLovedHandler();
                         }}
                         className="w-6 text-emerald-400"
                     />

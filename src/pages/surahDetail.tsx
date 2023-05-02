@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import SurahList from "../components/surah/SurahList";
 import AyatDetail from "../components/surah/AyatDetail";
@@ -7,12 +7,10 @@ import SekeletonAyat from "../components/surah/SekeletonAyat";
 import useWindowWidth from "../hooks/useWindowWidth";
 import AyatHeader from "../components/surah/AyatHeader";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { useEffect } from "react";
 
 type Props = {};
 
 export default function surahDetail({}: Props) {
-    const navigate = useNavigate();
     const { surahId, ayatId = 0 } = useParams();
     const windowWidth = useWindowWidth();
     const [value, setValue] = useLocalStorage("bookmark", {});
@@ -21,59 +19,63 @@ export default function surahDetail({}: Props) {
     );
 
     if (data?.code > 200) {
-        navigate("/404");
-    }
-    return (
-        <>
-            {windowWidth < 1024 ? (
-                <AyatHeader
-                    nextSurat={data?.data?.suratSelanjutnya}
-                    beforeSurat={data?.data?.suratSebelumnya}
-                    suratName={data?.data?.namaLatin}
-                    suratId={data?.data?.nomor}
-                    isLoading={isLoading}
-                />
-            ) : (
-                ""
-            )}
-            <div className="grid grid-cols-5 gap-5 py-8 px-3 md:px-8">
-                {windowWidth > 1024 ? (
-                    <div className="col-start-1">
-                        <SurahList activeSurah={data?.data?.nama} />
-                    </div>
+        return <Navigate to={"/404"} />;
+    } else {
+        return (
+            <>
+                {windowWidth < 1024 ? (
+                    <AyatHeader
+                        nextsurah={data?.data?.surahSelanjutnya}
+                        beforesurah={data?.data?.surahSebelumnya}
+                        surahName={data?.data?.namaLatin}
+                        isLoading={isLoading}
+                    />
                 ) : (
                     ""
                 )}
-                <div
-                    className={`relative col-start-1 col-end-6 flex flex-col gap-5 px-5 pt-16 lg:col-start-2 lg:pt-0`}
-                >
-                    {isLoading
-                        ? sekeleteonDetails.map((sekeleton) => {
-                              return <SekeletonAyat key={sekeleton} />;
-                          })
-                        : data?.data?.ayat.map((surah: any) => {
-                              if (ayatId < data.data.ayat.length) {
-                                  if (surah.nomorAyat >= ayatId) {
-                                      return (
-                                          <AyatDetail
-                                              id={data.data.nomor}
-                                              value={value}
-                                              setValue={setValue}
-                                              key={surah.nomorAyat}
-                                              nomerAyat={surah.nomorAyat}
-                                              ayat={surah.teksArab}
-                                              translate={surah.teksIndonesia}
-                                              latinText={surah.teksLatin}
-                                              suratName={data.data.namaLatin}
-                                          />
-                                      );
+                <div className="grid grid-cols-5 gap-5 py-8 px-3 md:px-8">
+                    {windowWidth > 1024 ? (
+                        <div className="col-start-1">
+                            <SurahList activesurah={data?.data?.nama} />
+                        </div>
+                    ) : (
+                        ""
+                    )}
+                    <div
+                        className={`relative col-start-1 col-end-6 flex flex-col gap-5 px-5 pt-16 lg:col-start-2 lg:pt-0`}
+                    >
+                        {isLoading
+                            ? sekeleteonDetails.map((sekeleton) => {
+                                  return <SekeletonAyat key={sekeleton} />;
+                              })
+                            : data?.data?.ayat.map((surah: any) => {
+                                  if (ayatId < data.data.ayat.length) {
+                                      if (surah.nomorAyat >= ayatId) {
+                                          return (
+                                              <AyatDetail
+                                                  id={data.data.nomor}
+                                                  value={value}
+                                                  setValue={setValue}
+                                                  key={surah.nomorAyat}
+                                                  nomerAyat={surah.nomorAyat}
+                                                  ayat={surah.teksArab}
+                                                  translate={
+                                                      surah.teksIndonesia
+                                                  }
+                                                  latinText={surah.teksLatin}
+                                                  surahName={
+                                                      data.data.namaLatin
+                                                  }
+                                              />
+                                          );
+                                      }
+                                  } else {
+                                      <Navigate to={"/404"} />;
                                   }
-                              } else {
-                                  navigate("/404");
-                              }
-                          })}
+                              })}
+                    </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 }
