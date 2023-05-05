@@ -6,9 +6,9 @@ import BookMark from "./pages/BookMark";
 import Favorite from "./pages/Favorite";
 import PrayerSchedule from "./pages/PrayerSchedule";
 import FlowFooter from "./components/FlowFooter";
-import SurahDetail from "./pages/SurahDetail";
 import NotFound from "./pages/NotFound";
 import useWindowWidth from "./hooks/useWindowWidth";
+import SurahDetail from "./pages/SurahDetail";
 
 function App() {
     const windowWidth = useWindowWidth();

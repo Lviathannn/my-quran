@@ -10,7 +10,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 type Props = {};
 
-export default function surahDetail({}: Props) {
+export default function SurahDetail({}: Props) {
     const { surahId, ayatId = 0 } = useParams();
     const windowWidth = useWindowWidth();
     const [value, setValue] = useLocalStorage("bookmark", {});
