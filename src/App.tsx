@@ -1,11 +1,6 @@
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Surah from "./pages/Surah";
 import BookMark from "./pages/BookMark";
 import Favorite from "./pages/Favorite";
