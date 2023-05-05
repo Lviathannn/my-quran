@@ -1,29 +1,29 @@
 interface surah {
-   nomor: number;
-   nama: string;
-   namaLatin: string;
-   jumlahAyat: number;
-   tempatTurun: string;
-   arti: string;
-   deskripsi: string;
-   audioFull: {
-      [key: string]: string;
-   };
+    nomor: number;
+    nama: string;
+    namaLatin: string;
+    jumlahAyat: number;
+    tempatTurun: string;
+    arti: string;
+    deskripsi: string;
+    audioFull: {
+        [key: string]: string;
+    };
 }
 
 interface Data {
-   data: surah[];
+    data: surah[];
 }
 
 export interface surahData {
-   code: number;
-   message: string;
-   data: Data | null;
+    code: number;
+    message: string;
+    data: Data | null;
 }
 
 export interface Loved {
-   id: number;
-   title: string;
-   translate:string;
-   
+    id: number;
+    title: string;
+    translate: string;
 }
+export type Placement = "bottom" | "left" | "right" | "top";

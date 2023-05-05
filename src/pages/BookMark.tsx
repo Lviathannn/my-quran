@@ -6,8 +6,8 @@ type Props = {};
 export default function BookMark({}: Props) {
     const [value] = useLocalStorage("bookmark", {});
     return (
-        <div className="h-screen bg-slate-100 p-8">
-            <h1 className="text-xl font-medium text-slate-600">
+        <div className="h-screen bg-slate-100 p-8 dark:bg-slate-700">
+            <h1 className="text-xl font-medium text-slate-600 dark:text-slate-100">
                 Ayat Yang Ditandai :
             </h1>
             {value?.id !== undefined ? (

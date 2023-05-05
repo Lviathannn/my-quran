@@ -62,14 +62,14 @@ export default function Card({
     };
 
     return (
-        <div className={`relative`}>
-            <button className="absolute top-5 right-5">
+        <div className={`relative `}>
+            <button className="absolute top-7 right-5">
                 {!love ? (
                     <HeartIcon
                         onClick={() => {
                             lovedHandler(id, title, translate);
                         }}
-                        className="w-6 text-gray-400"
+                        className="w-6 text-gray-400 dark:text-white"
                     />
                 ) : (
                     <HeartSolid
@@ -82,19 +82,19 @@ export default function Card({
             </button>
             <Link
                 to={`/surah/${id}${ayatID ? `/${ayatID}` : ""}`}
-                className={`flex flex-col gap-5 rounded-xl bg-white px-5 py-5 ${customClass}`}
+                className={`flex flex-col gap-5 rounded-xl bg-white px-5 py-5 dark:bg-slate-600 ${customClass}`}
             >
                 <div className="flex justify-between">
-                    <div className=" flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 p-4 font-medium text-emerald-600">
+                    <div className=" flex h-4 w-4 items-center justify-center rounded-full bg-emerald-50 p-4 font-medium text-emerald-600 dark:bg-emerald-400 dark:text-white">
                         {id}
                     </div>
                 </div>
                 <div className="flex items-end justify-between">
                     <div className="flex flex-col">
-                        <h2 className="text-base font-semibold text-slate-600">
+                        <h2 className="text-base font-semibold text-slate-600 dark:text-white">
                             {title}
                         </h2>
-                        <p className="text-sm font-medium text-slate-400">
+                        <p className="text-sm font-medium text-slate-400 dark:text-white">
                             {translate}
                         </p>
                     </div>

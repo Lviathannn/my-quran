@@ -4,10 +4,10 @@ import Alquran from "../assets/img/Alquran.png";
 
 export default function NotFound({}: Props) {
     return (
-        <div className="flex h-screen items-center justify-center bg-slate-100">
+        <div className="flex h-screen items-center justify-center bg-slate-100 dark:bg-slate-700">
             <div className="flex flex-col items-center justify-center gap-6">
                 <img src={Alquran} alt="" className="w-40" />
-                <h1 className="text-lg font-semibold text-slate-600">
+                <h1 className="text-lg font-semibold text-slate-600 dark:text-slate-100">
                     surah Yang Anda Cari Tidak Ditemukan
                 </h1>
                 <Link

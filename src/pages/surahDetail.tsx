@@ -17,7 +17,6 @@ export default function surahDetail({}: Props) {
     const { data, isLoading } = useFetch<any>(
         `https://equran.id/api/v2/surat/${surahId}`
     );
-
     if (data?.code > 200) {
         return <Navigate to={"/404"} />;
     } else {
@@ -25,15 +24,15 @@ export default function surahDetail({}: Props) {
             <>
                 {windowWidth < 1024 ? (
                     <AyatHeader
-                        nextsurah={data?.data?.surahSelanjutnya}
-                        beforesurah={data?.data?.surahSebelumnya}
+                        nextsurah={data?.data?.suratSelanjutnya}
+                        beforesurah={data?.data?.suratSebelumnya}
                         surahName={data?.data?.namaLatin}
                         isLoading={isLoading}
                     />
                 ) : (
                     ""
                 )}
-                <div className="grid grid-cols-5 gap-5 py-8 px-3 md:px-8">
+                <div className="grid grid-cols-5 gap-5 py-8 px-1 lg:px-8">
                     {windowWidth > 1024 ? (
                         <div className="col-start-1">
                             <SurahList activesurah={data?.data?.nama} />
@@ -42,7 +41,7 @@ export default function surahDetail({}: Props) {
                         ""
                     )}
                     <div
-                        className={`relative col-start-1 col-end-6 flex flex-col gap-5 px-5 pt-16 lg:col-start-2 lg:pt-0`}
+                        className={`relative col-start-1 col-end-6 flex flex-col gap-1 pt-12 lg:col-start-2 lg:gap-5 lg:px-5 lg:pt-0`}
                     >
                         {isLoading
                             ? sekeleteonDetails.map((sekeleton) => {

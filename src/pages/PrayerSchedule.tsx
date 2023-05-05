@@ -25,16 +25,24 @@ export default function PrayerSchedule({}: Props) {
         `https://api.banghasan.com/sholat/format/json/jadwal/kota/${city.id}/tanggal/${date}`
     );
     return (
-        <div className="h-screen bg-slate-100 p-8">
+        <div className="h-screen bg-slate-100 p-8 dark:bg-slate-700">
             <div className="flex flex-col gap-5">
                 <FlowDropdown setCity={setCity} />
                 <Table>
-                    <Table.Head>
-                        <Table.HeadCell>Waktu Sholat</Table.HeadCell>
-                        <Table.HeadCell>Jam</Table.HeadCell>
-                        <Table.HeadCell>Kota</Table.HeadCell>
-                        <Table.HeadCell>Tanggal</Table.HeadCell>
-                    </Table.Head>{" "}
+                    <Table.Head className="dark:bg-slate-800">
+                        <Table.HeadCell className="dark:text-slate-100">
+                            Waktu Sholat
+                        </Table.HeadCell>
+                        <Table.HeadCell className="dark:text-slate-100">
+                            Jam
+                        </Table.HeadCell>
+                        <Table.HeadCell className="dark:text-slate-100">
+                            Kota
+                        </Table.HeadCell>
+                        <Table.HeadCell className="dark:text-slate-100">
+                            Tanggal
+                        </Table.HeadCell>
+                    </Table.Head>
                     {!isLoading ? (
                         <FlowTable data={data?.jadwal?.data} city={city.city} />
                     ) : (

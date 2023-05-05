@@ -11,7 +11,7 @@ import BookMark from "./pages/BookMark";
 import Favorite from "./pages/Favorite";
 import PrayerSchedule from "./pages/PrayerSchedule";
 import FlowFooter from "./components/FlowFooter";
-import SurahDetail from "./pages/surahDetail";
+import SurahDetail from "./pages/SurahDetail";
 import NotFound from "./pages/NotFound";
 import useWindowWidth from "./hooks/useWindowWidth";
 
@@ -21,7 +21,7 @@ function App() {
         <>
             <Router>
                 {windowWidth > 1024 ? <SideBar /> : <Navbar />}
-                <div className="bg-slate-100 font-poppins lg:pl-20">
+                <div className="bg-slate-100 font-poppins dark:bg-slate-700 lg:pl-20">
                     <Routes>
                         <Route path="/" Component={Surah} />
                         <Route path="/surah/:surahId" Component={SurahDetail} />

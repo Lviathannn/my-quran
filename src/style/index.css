@@ -1,11 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&display=swap");
+:root {
+    --primary: #1e293b;
+    --secondary: #34d399;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--primary);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 5px;
+    border: 3px solid var(--primary);
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-   font-family: "LPMQI";
-   src: url("../assets/font/LPMQIsepMisbah.ttf");
+    font-family: "LPMQI";
+    src: url("../assets/font/LPMQIsepMisbah.ttf");
 }

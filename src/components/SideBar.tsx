@@ -3,6 +3,7 @@ import { sideBarData } from "../data/dummy";
 import { NavLink } from "react-router-dom";
 import github from "../assets/img/github.png";
 import quran from "../assets/img/quran.png";
+import DarkToogle from "./DarkToogle";
 
 type Props = {};
 
@@ -28,10 +29,10 @@ export default function SideBar({}: Props) {
                                     <NavLink
                                         to={`/${item.link}`}
                                         className={({ isActive }) =>
-                                            `flex items-center justify-center rounded-lg py-2 px-3 dark:text-white dark:hover:bg-gray-700 ${
+                                            `flex items-center justify-center rounded-lg py-2 px-3 dark:hover:bg-gray-700 dark:hover:text-emerald-500 ${
                                                 isActive
-                                                    ? "bg-gray-100 text-emerald-500 "
-                                                    : "text-slate-700 hover:bg-gray-100 hover:text-emerald-500"
+                                                    ? "bg-gray-100 text-emerald-500 dark:bg-gray-700 dark:text-emerald-500"
+                                                    : "text-slate-700 hover:bg-gray-100 hover:text-emerald-500 dark:text-slate-100"
                                             }`
                                         }
                                     >
@@ -41,8 +42,14 @@ export default function SideBar({}: Props) {
                             </li>
                         );
                     })}
+                    <li className="flex justify-center">
+                        <DarkToogle direction="right" />
+                    </li>
                 </ul>
-                <a href="" className="absolute bottom-10 text-center">
+                <a
+                    href=""
+                    className="absolute bottom-10 flex flex-col items-center justify-center gap-3"
+                >
                     <Tooltip content="Github" placement="right">
                         <img
                             src={github}

@@ -58,9 +58,9 @@ export default function AyatDetail({
     }, [value]);
 
     return (
-        <div className="arab flex w-full flex-col gap-10 rounded-lg bg-white px-10 py-8">
+        <div className="arab flex flex-col gap-10 bg-white px-5 py-5 dark:bg-slate-600  lg:rounded-lg lg:px-7">
             <div className="flex justify-between">
-                <div className=" flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 p-4 font-medium text-emerald-600">
+                <div className=" flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 p-4 font-medium text-emerald-600 dark:bg-emerald-400 dark:text-white">
                     {nomerAyat}
                 </div>
                 <button className="mb-5 self-end">
@@ -70,7 +70,7 @@ export default function AyatDetail({
                                 setbookMarked(true);
                                 bookmarkedHandler(id, nomerAyat, surahName);
                             }}
-                            className="w-7 text-gray-400"
+                            className="w-7 text-gray-400 dark:text-slate-100"
                         />
                     ) : (
                         <Bookmarksolid
@@ -84,11 +84,11 @@ export default function AyatDetail({
                 </button>
             </div>
             <div className="flex items-center justify-end gap-5">
-                <p className="text-right font-arab text-xl font-semibold leading-loose tracking-wide text-slate-600">
+                <p className="text-right font-arab text-xl font-semibold leading-loose tracking-normal text-slate-600 dark:font-normal dark:text-slate-200">
                     {ayat}
                 </p>
             </div>
-            <div className="flex flex-col gap-5 text-base text-slate-600">
+            <div className="flex flex-col gap-5 text-base text-slate-600 dark:text-slate-100">
                 <p className="text-emerald-500">{latinText}</p>
                 <p>{translate}</p>
             </div>
