@@ -42,7 +42,7 @@ export default function surah({}: Props) {
     const windowWidth = useWindowWidth();
 
     return (
-        <div className="relative">
+        <div className="relative min-h-screen">
             {windowWidth > 1024 ? (
                 <Header
                     setGrid={setGrid}
@@ -51,7 +51,10 @@ export default function surah({}: Props) {
                     searchHandler={filtersurah}
                 />
             ) : (
-                <MobileHeader />
+                <MobileHeader
+                    setKeyWord={setSearch}
+                    searchHandler={filtersurah}
+                />
             )}
             <div
                 ref={surahList}
