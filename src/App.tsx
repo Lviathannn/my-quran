@@ -8,7 +8,7 @@ import PrayerSchedule from "./pages/PrayerSchedule";
 import FlowFooter from "./components/FlowFooter";
 import NotFound from "./pages/NotFound";
 import useWindowWidth from "./hooks/useWindowWidth";
-import SurahDetail from "./pages/SurahDetail";
+import SurahDetails from "./pages/SurahDetails";
 
 function App() {
     const windowWidth = useWindowWidth();
@@ -19,10 +19,13 @@ function App() {
                 <div className="bg-slate-100 font-poppins dark:bg-slate-700 lg:pl-20">
                     <Routes>
                         <Route path="/" Component={Surah} />
-                        <Route path="/surah/:surahId" Component={SurahDetail} />
+                        <Route
+                            path="/surah/:surahId"
+                            Component={SurahDetails}
+                        />
                         <Route
                             path="/surah/:surahId/:ayatId"
-                            Component={SurahDetail}
+                            Component={SurahDetails}
                         />
                         <Route path="/bookmark" Component={BookMark} />
                         <Route path="/favorite" Component={Favorite} />
