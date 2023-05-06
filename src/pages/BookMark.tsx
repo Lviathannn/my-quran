@@ -6,7 +6,7 @@ type Props = {};
 
 export default function BookMark({}: Props) {
     const [value] = useLocalStorage("bookmark", {});
-    const [darkMode = value] = useLocalStorage("darkmode", "dark");
+    const [darkMode = value] = useLocalStorage("darkmode", "light");
     useEffect(() => {
         if (darkMode == "dark") {
             document.body.classList.add("dark");

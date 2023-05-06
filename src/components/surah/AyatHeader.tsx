@@ -22,7 +22,7 @@ export default function AyatHeader({
     surahName,
     isLoading,
 }: Props) {
-    const [value, setValue] = useLocalStorage("darkmode", "dark");
+    const [value, setValue] = useLocalStorage("darkmode", "light");
     useEffect(() => {
         if (value == "dark") {
             document.body.classList.add("dark");

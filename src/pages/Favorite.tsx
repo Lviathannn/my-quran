@@ -7,7 +7,7 @@ type Props = {};
 
 export default function Favorite({}: Props) {
     const [value] = useLocalStorage("loved", []);
-    const [darkMode = value] = useLocalStorage("darkmode", "dark");
+    const [darkMode = value] = useLocalStorage("darkmode", "light");
     useEffect(() => {
         if (darkMode == "dark") {
             document.body.classList.add("dark");

@@ -9,7 +9,7 @@ type Props = {};
 
 export default function PrayerSchedule({}: Props) {
     const [city, setCity] = useState({ id: "683", city: "Ciamis" });
-    const [value] = useLocalStorage("darkmode", "dark");
+    const [value] = useLocalStorage("darkmode", "light");
     useEffect(() => {
         if (value == "dark") {
             document.body.classList.add("dark");
