@@ -14,11 +14,9 @@ export default function DarkToogle({ direction }: Props) {
         if (value == "dark") {
             document.body.classList.add("dark");
             document.body.classList.remove("light");
-            setValue("dark");
         } else {
             document.body.classList.add("light");
             document.body.classList.remove("dark");
-            setValue("light");
         }
     }, [value]);
 

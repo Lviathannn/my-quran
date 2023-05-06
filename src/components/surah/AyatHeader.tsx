@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { useEffect } from "react";
 
 type surah = {
     nomor: number;
@@ -20,6 +22,16 @@ export default function AyatHeader({
     surahName,
     isLoading,
 }: Props) {
+    const [value, setValue] = useLocalStorage("darkmode", "dark");
+    useEffect(() => {
+        if (value == "dark") {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+        } else {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
+    }, [value]);
     return (
         <header className="fixed top-0 left-0 z-40 flex h-20 w-full items-center justify-center bg-white drop-shadow-sm dark:bg-slate-800">
             <div className="grid w-full grid-cols-3 items-center justify-items-center">

@@ -84,7 +84,10 @@ export default function AyatDetail({
                 </button>
             </div>
             <div className="flex items-center justify-end gap-5">
-                <p className="text-right font-arab text-2xl font-semibold leading-loose tracking-normal text-slate-600 dark:font-medium dark:text-slate-200">
+                <p
+                    className=" font-arab text-2xl leading-[2.3] tracking-normal text-slate-600 dark:text-slate-200"
+                    dir="rtl"
+                >
                     {ayat}
                 </p>
             </div>

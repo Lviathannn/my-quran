@@ -92,7 +92,7 @@ export default function Card({
                 <div className="flex items-end justify-between">
                     <div className="flex flex-col">
                         <h2 className="text-base font-semibold text-slate-600 dark:text-white">
-                            {title}
+                            {title.replace("-", " ")}
                         </h2>
                         <p className="text-sm font-medium text-slate-400 dark:text-white">
                             {translate}

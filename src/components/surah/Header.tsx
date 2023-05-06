@@ -5,15 +5,9 @@ type Props = {
     setGrid: Dispatch<boolean>;
     setKeyWord: Dispatch<string>;
     grid: boolean;
-    searchHandler: () => void;
 };
 
-export default function Header({
-    setGrid,
-    grid,
-    setKeyWord,
-    searchHandler,
-}: Props) {
+export default function Header({ setGrid, grid, setKeyWord }: Props) {
     return (
         <div className="sticky top-0 z-50 flex w-full items-center justify-between bg-slate-100 py-5 px-8 dark:bg-slate-700">
             <div className="">
@@ -41,7 +35,6 @@ export default function Header({
                 <input
                     onChange={(e) => {
                         setKeyWord(e.target.value);
-                        searchHandler();
                     }}
                     type="text"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 placeholder:text-sm focus:border-emerald-500 focus:ring-emerald-500 dark:border-gray-500  dark:bg-slate-500 dark:text-white dark:placeholder-gray-200 dark:focus:border-emerald-500 dark:focus:ring-emerald-500"

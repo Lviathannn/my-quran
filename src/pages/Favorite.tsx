@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Card from "../components/surah/Card";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { Loved } from "../type";
@@ -6,6 +7,17 @@ type Props = {};
 
 export default function Favorite({}: Props) {
     const [value] = useLocalStorage("loved", []);
+    const [darkMode = value] = useLocalStorage("darkmode", "dark");
+    useEffect(() => {
+        if (darkMode == "dark") {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+        } else {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
+    }, [darkMode]);
+
     const sortedValue = value.sort((a: Loved, b: Loved) => {
         return a.id - b.id;
     });

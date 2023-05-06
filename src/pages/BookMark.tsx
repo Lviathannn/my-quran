@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Card from "../components/surah/Card";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -5,6 +6,16 @@ type Props = {};
 
 export default function BookMark({}: Props) {
     const [value] = useLocalStorage("bookmark", {});
+    const [darkMode = value] = useLocalStorage("darkmode", "dark");
+    useEffect(() => {
+        if (darkMode == "dark") {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+        } else {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
+    }, [darkMode]);
     return (
         <div className="h-screen bg-slate-100 p-8 dark:bg-slate-700">
             <h1 className="text-xl font-medium text-slate-600 dark:text-slate-100">

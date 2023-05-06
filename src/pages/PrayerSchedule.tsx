@@ -1,13 +1,24 @@
 import { Table } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import FlowTable from "../components/prayerSchedule/FlowTable";
 import FlowDropdown from "../components/prayerSchedule/FlowDropdown";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type Props = {};
 
 export default function PrayerSchedule({}: Props) {
     const [city, setCity] = useState({ id: "683", city: "Ciamis" });
+    const [value] = useLocalStorage("darkmode", "dark");
+    useEffect(() => {
+        if (value == "dark") {
+            document.body.classList.add("dark");
+            document.body.classList.remove("light");
+        } else {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
+    }, [value]);
     const getDate = () => {
         let day: string | number = new Date().getDate();
         let month: string | number = new Date().getMonth();
