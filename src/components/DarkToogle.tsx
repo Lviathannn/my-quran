@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function DarkToogle({ direction }: Props) {
-    const [value, setValue] = useLocalStorage("darkmode", "dark");
+    const [value, setValue] = useLocalStorage("darkmode", "light");
     useEffect(() => {
         if (value == "dark") {
             document.body.classList.add("dark");

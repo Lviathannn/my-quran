@@ -10,6 +10,7 @@ type Props = {
     translate: string;
     customClass?: string;
     ayatID?: number;
+    ayatNumber?: string;
 };
 
 export default function Card({
@@ -18,8 +19,10 @@ export default function Card({
     translate,
     customClass,
     ayatID,
+    ayatNumber
 }: Props) {
     const [love, setlove] = useState(false);
+
     useEffect(() => {
         const localStorage = window.localStorage.getItem("loved");
         if (localStorage !== null) {
@@ -47,6 +50,7 @@ export default function Card({
         }
         setlove(true);
     };
+
     const unLovedHandler = () => {
         const localStorage = window.localStorage.getItem("loved");
         if (localStorage !== null) {
@@ -95,7 +99,7 @@ export default function Card({
                             {title.replace("-", " ")}
                         </h2>
                         <p className="text-sm font-medium text-slate-400 dark:text-white">
-                            {translate}
+                            {ayatNumber ? ayatNumber :translate}
                         </p>
                     </div>
                 </div>

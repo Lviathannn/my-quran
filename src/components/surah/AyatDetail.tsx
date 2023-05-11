@@ -8,6 +8,7 @@ type Props = {
     nomerAyat: number;
     ayat: string;
     translate: string;
+    surahTranslate: string;
     latinText: string;
     value: {
         id: number;
@@ -26,18 +27,22 @@ export default function AyatDetail({
     latinText,
     value,
     setValue,
+    surahTranslate,
 }: Props) {
     const [bookMarked, setbookMarked] = useState(false);
-
     const bookmarkedHandler = (
         id: number,
         nomerAyat: number,
-        surahName: string
+        surahName: string,
+        translate: string,
+        surahTranslate: string
     ) => {
         const bookmark = {
             id,
             nomerAyat,
             surahName,
+            translate,
+            surahTranslate,
         };
 
         setValue(bookmark);
@@ -68,7 +73,12 @@ export default function AyatDetail({
                         <BookmarkIcon
                             onClick={() => {
                                 setbookMarked(true);
-                                bookmarkedHandler(id, nomerAyat, surahName);
+                                bookmarkedHandler(
+                                    id,
+                                    nomerAyat,
+                                    surahName,
+                                    surahTranslate
+                                );
                             }}
                             className="w-7 text-gray-400 dark:text-slate-100"
                         />
