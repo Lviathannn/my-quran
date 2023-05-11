@@ -34,14 +34,12 @@ export default function AyatDetail({
         id: number,
         nomerAyat: number,
         surahName: string,
-        translate: string,
         surahTranslate: string
     ) => {
         const bookmark = {
             id,
             nomerAyat,
             surahName,
-            translate,
             surahTranslate,
         };
 
