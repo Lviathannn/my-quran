@@ -28,7 +28,7 @@ export default function BookMark({}: Props) {
             title={value.surahName}
             ayatNumber={`Ayat Ke ${value.nomerAyat}`}
             ayatID={value.nomerAyat}
-            translate={value.translate}
+            translate={value.surahTranslate}
           />
         </div>
       ) : (
