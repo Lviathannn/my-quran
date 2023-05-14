@@ -17,7 +17,6 @@ export default function SurahDetails({}: Props) {
   const { data, isLoading } = useFetch<any>(
     `https://equran.id/api/v2/surat/${surahId}`
   );
-
   if (data?.code > 200) {
     return <Navigate to={"/404"} />;
   } else {
@@ -60,14 +59,14 @@ export default function SurahDetails({}: Props) {
                           nomerAyat={surah.nomorAyat}
                           ayat={surah.teksArab}
                           translate={surah.teksIndonesia}
-                          surahTranslate={data?.data?.arti}
                           latinText={surah.teksLatin}
                           surahName={data.data.namaLatin}
+                          surahTranslate={data?.data?.arti}
                         />
                       );
                     }
                   } else {
-                    <Navigate to={"/404"} />;
+                    return <Navigate to={"/404"} />;
                   }
                 })}
           </div>
